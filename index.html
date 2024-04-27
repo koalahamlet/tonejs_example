@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tone.js Button Player</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <button class="note-button" id="playC">Play C</button>
+    <button class="note-button" id="playG">Play G</button>
+    <button class="note-button" id="playA">Play A</button>
+    <div class="info-box">
+      <label for="wavelength">Wavelength (Hz):</label>
+      <input type="text" id="wavelength" readonly>
+    </div>
+    <div class="input-box">
+      <label for="customFrequency">Custom Frequency (Hz):</label>
+      <input type="text" id="customFrequency">
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" id="playOnSliderChange">
+      <label for="playOnSliderChange">Play Note on Slider Change</label>
+    </div>
+    <input type="range" id="frequencySlider" min="20" max="2000" step="1">
+    <button class="note-button" id="playCustom">Play Custom</button>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.20/Tone.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

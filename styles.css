@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Display items in a column */
+    align-items: center;
+  }
+  
+  .info-box,
+  .input-box,
+  .checkbox-container {
+    margin: 10px;
+  }
+  
+  .note-button {
+    padding: 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%; /* Making the buttons circular */
+    transition: background-color 0.3s;
+  }
+  
+  #playC {
+    background-color: #ff0000; /* Red */
+    color: #fff;
+  }
+  
+  #playG {
+    background-color: #00ff00; /* Green */
+    color: #fff;
+  }
+  
+  #playA {
+    background-color: #0000ff; /* Blue */
+    color: #fff;
+  }
+  
+  .note-button:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+  }
+  
+  #frequencySlider {
+    width: 300px; /* Three times as wide */
+    margin-top: 20px; /* Margin from the top */
+  }
+  
