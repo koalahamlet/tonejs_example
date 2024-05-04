@@ -20,11 +20,7 @@ function releaseNoteAndRemoveHighlight(button) {
   synth.triggerRelease(note);
   // Update lastPlayedButtons object
   delete lastPlayedButtons[note];
-  if (note === 'G4' || note === 'C5') {
-    button.style.backgroundColor = '#9400d3'; // Dayglow violet
-  } else {
-    button.style.backgroundColor = ''; // Default color
-  }
+  button.style.backgroundColor = ''; // Reset button color
 }
 
 // Event listener for each piano key
@@ -76,9 +72,19 @@ document.getElementById("frequencySlider").addEventListener("input", handleSlide
 // Function to handle keydown events
 function handleKeyDown(event) {
   const key = event.key.toUpperCase();
-  const noteIndex = "QWERTYUI".indexOf(key);
+  const whiteKeys = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I']; // White keys
+  const blackKeys = ['2', '3', '5', '6', '7']; // Black keys
+  let noteIndex = whiteKeys.indexOf(key);
+  let buttons;
+
+  if (noteIndex === -1) {
+    noteIndex = blackKeys.indexOf(key);
+    buttons = document.querySelectorAll('.black-key'); // Select only black keys
+  } else {
+    buttons = document.querySelectorAll('.white-key'); // Select only white keys
+  }
+
   if (noteIndex !== -1) {
-    const buttons = document.querySelectorAll('.note-button');
     if (noteIndex >= 0 && noteIndex < buttons.length) {
       const button = buttons[noteIndex];
       playNoteAndHighlightButton(button);
@@ -89,9 +95,19 @@ function handleKeyDown(event) {
 // Function to handle keyup events
 function handleKeyUp(event) {
   const key = event.key.toUpperCase();
-  const noteIndex = "QWERTYUI".indexOf(key);
+  const whiteKeys = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I']; // White keys
+  const blackKeys = ['2', '3', '5', '6', '7']; // Black keys
+  let noteIndex = whiteKeys.indexOf(key);
+  let buttons;
+
+  if (noteIndex === -1) {
+    noteIndex = blackKeys.indexOf(key);
+    buttons = document.querySelectorAll('.black-key'); // Select only black keys
+  } else {
+    buttons = document.querySelectorAll('.white-key'); // Select only white keys
+  }
+
   if (noteIndex !== -1) {
-    const buttons = document.querySelectorAll('.note-button');
     if (noteIndex >= 0 && noteIndex < buttons.length) {
       const button = buttons[noteIndex];
       releaseNoteAndRemoveHighlight(button);

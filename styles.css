@@ -1,103 +1,57 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #333; /* Dark grey background */
-  color: #fff; /* White text */
-  margin: 0;
-  padding: 0;
+  background-color: #222; /* Dark grey background */
+  color: white; /* White text */
 }
 
-.container {
+.piano {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.button-row {
-  display: flex;
-}
-
-.note-button,
-#playCustom,
-#stopAllNotes {
-  font-size: 16px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin: 5px;
-  color: #fff; /* White text */
-  border: none;
-  cursor: pointer;
-}
-
-#playC {
-  background-color: #ff0000; /* Dayglow red */
-}
-
-#playD {
-  background-color: #ff7f00; /* Dayglow orange */
-}
-
-#playE {
-  background-color: #ffff00; /* Dayglow yellow */
-}
-
-#playF {
-  background-color: #00ff00; /* Dayglow green */
-}
-
-#playG1 {
-  background-color: #0000ff; /* Dayglow blue */
-}
-
-#playG2 {
-  background-color: #0099ff; /* Second shade of blue */
-}
-
-#playA {
-  background-color: #4b0082; /* Dayglow indigo */
-}
-
-#playB {
-  background-color: #9400d3; /* Dayglow violet */
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Display keys in columns */
+  align-items: center; /* Center keys horizontally */
   margin-top: 20px;
 }
 
-.input-box {
-  margin-bottom: 10px;
-}
-
-.checkbox-container {
+.row {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  justify-content: space-between; /* Distribute keys evenly */
+  width: 100%;
 }
 
-.checkbox-container input[type="checkbox"] {
-  margin-right: 5px;
+.half-button {
+  border: none;
+  border-radius: 5px;
+  width: 30px;
+  height: 200px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.info-box {
-  margin-bottom: 10px;
+.note-button {
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 200px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-#frequencySlider {
-  width: 300px;
+.white-key {
+  background-color: white;
 }
 
-/* Custom styles for the wavelength box */
-#wavelength {
-  width: 150px;
+.black-key {
+  background-color: black;
 }
 
-/* Custom styles for the custom frequency input */
-#customFrequency {
-  width: 100px;
-}
+/* Rainbow colors */
+.note-button:nth-child(1) { background-color: red; }
+.note-button:nth-child(2) { background-color: orange; }
+.note-button:nth-child(3) { background-color: yellow; }
+.note-button:nth-child(4) { background-color: rgb(41, 194, 41); }
+.note-button:nth-child(5) { background-color: rgb(18, 203, 232); }
+.note-button:nth-child(6) { background-color: blue; }
+.note-button:nth-child(7) { background-color: indigo; }
+.note-button:nth-child(8) { background-color: violet; }
+
+/* Set specific colors for individual keys */
+button[data-note="G4"] { background-color: blue; }
