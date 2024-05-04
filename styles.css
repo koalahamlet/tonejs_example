@@ -1,46 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333; /* Dark grey background */
+  color: #fff; /* White text */
+  margin: 0;
+  padding: 0;
+}
+
 .container {
-    display: flex;
-    flex-direction: column; /* Display items in a column */
-    align-items: center;
-  }
-  
-  .info-box,
-  .input-box,
-  .checkbox-container {
-    margin: 10px;
-  }
-  
-  .note-button {
-    padding: 20px;
-    margin: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 50%; /* Making the buttons circular */
-    transition: background-color 0.3s;
-  }
-  
-  #playC {
-    background-color: #ff0000; /* Red */
-    color: #fff;
-  }
-  
-  #playG {
-    background-color: #00ff00; /* Green */
-    color: #fff;
-  }
-  
-  #playA {
-    background-color: #0000ff; /* Blue */
-    color: #fff;
-  }
-  
-  .note-button:hover {
-    opacity: 0.8; /* Reduce opacity on hover */
-  }
-  
-  #frequencySlider {
-    width: 300px; /* Three times as wide */
-    margin-top: 20px; /* Margin from the top */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.button-row {
+  display: flex;
+}
+
+.note-button,
+#playCustom,
+#stopAllNotes {
+  font-size: 16px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  color: #fff; /* White text */
+  border: none;
+  cursor: pointer;
+}
+
+#playC {
+  background-color: #ff0000; /* Dayglow red */
+}
+
+#playD {
+  background-color: #ff7f00; /* Dayglow orange */
+}
+
+#playE {
+  background-color: #ffff00; /* Dayglow yellow */
+}
+
+#playF {
+  background-color: #00ff00; /* Dayglow green */
+}
+
+#playG1 {
+  background-color: #0000ff; /* Dayglow blue */
+}
+
+#playG2 {
+  background-color: #0099ff; /* Second shade of blue */
+}
+
+#playA {
+  background-color: #4b0082; /* Dayglow indigo */
+}
+
+#playB {
+  background-color: #9400d3; /* Dayglow violet */
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.input-box {
+  margin-bottom: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.info-box {
+  margin-bottom: 10px;
+}
+
+#frequencySlider {
+  width: 300px;
+}
+
+/* Custom styles for the wavelength box */
+#wavelength {
+  width: 150px;
+}
+
+/* Custom styles for the custom frequency input */
+#customFrequency {
+  width: 100px;
+}

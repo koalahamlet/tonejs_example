@@ -1,0 +1,19 @@
+.piano {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .key {
+    width: 50px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid black;
+  }
+  
+  .key.black {
+    background-color: black;
+    position: relative;
+    z-index: 1;
+  }
+  

@@ -8,23 +8,38 @@
 </head>
 <body>
   <div class="container">
-    <button class="note-button" id="playC">Play C</button>
-    <button class="note-button" id="playG">Play G</button>
-    <button class="note-button" id="playA">Play A</button>
-    <div class="info-box">
-      <label for="wavelength">Wavelength (Hz):</label>
-      <input type="text" id="wavelength" readonly>
+    <div class="button-row">
+      <!-- Buttons for piano keys -->
+      <button class="note-button" id="playC">C4</button>
+      <button class="note-button" id="playD">D4</button>
+      <button class="note-button" id="playE">E4</button>
+      <button class="note-button" id="playF">F4</button>
+      <button class="note-button" id="playG">G4</button>
+      <button class="note-button" id="playA">A4</button>
+      <button class="note-button" id="playB">B4</button>
+      <button class="note-button" id="playC5">C5</button>
     </div>
-    <div class="input-box">
-      <label for="customFrequency">Custom Frequency (Hz):</label>
-      <input type="text" id="customFrequency">
+    <div class="column">
+      <!-- Custom frequency input and play button -->
+      <div class="input-box">
+        <label for="customFrequency">Custom Frequency (Hz):</label>
+        <input type="text" id="customFrequency">
+        <button id="playCustom">Play Custom</button>
+      </div>
+      <!-- Slider and checkbox -->
+      <input type="range" id="frequencySlider" min="20" max="1800" step="1">
+      <div class="checkbox-container">
+        <input type="checkbox" id="playOnSliderChange">
+        <label for="playOnSliderChange">Play Note on Slider Change</label>
+      </div>
+      <!-- Wavelength display -->
+      <div class="info-box">
+        <label for="wavelength">Wavelength (Hz):</label>
+        <input type="text" id="wavelength" readonly>
+      </div>
+      <!-- Button to stop all notes -->
+      <button id="stopAllNotes">Stop All Notes</button>
     </div>
-    <div class="checkbox-container">
-      <input type="checkbox" id="playOnSliderChange">
-      <label for="playOnSliderChange">Play Note on Slider Change</label>
-    </div>
-    <input type="range" id="frequencySlider" min="20" max="2000" step="1">
-    <button class="note-button" id="playCustom">Play Custom</button>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.20/Tone.js"></script>
   <script src="script.js"></script>
