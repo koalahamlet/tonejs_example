@@ -2,6 +2,7 @@
 const synth = new Tone.PolySynth().toDestination();
 
 let lastPlayedButtons = {}; // Object to keep track of last played buttons
+let lastFrequency = null; // Variable to store the frequency of the last played note
 
 // Function to play a note
 function playNoteAndHighlightButton(button) {
@@ -11,7 +12,16 @@ function playNoteAndHighlightButton(button) {
   lastPlayedButtons[note] = button;
   button.style.backgroundColor = '#ff69b4'; // Pink
   // Update wavelength box with frequency of the note
-  document.getElementById("wavelength").value = Tone.Frequency(note).toFrequency().toFixed(2);
+  const frequency = Tone.Frequency(note).toFrequency();
+  document.getElementById("wavelength").value = frequency.toFixed(2);
+  // Calculate and display the frequency ratio
+  if (lastFrequency !== null) {
+    const ratio = frequency / lastFrequency;
+    console.log("ratio", ratio)
+    document.getElementById("frequencyRatio").value = ratio.toFixed(2);
+  }
+  console.log("asdfasdf", frequency)
+  lastFrequency = frequency; // Update lastFrequency
 }
 
 // Function to release a note
@@ -118,3 +128,34 @@ function handleKeyUp(event) {
 // Add event listeners for keydown and keyup events
 document.addEventListener('keydown', handleKeyDown);
 document.addEventListener('keyup', handleKeyUp);
+
+// Function to update the text of all keys based on the specified octave
+function updateKeyText(octave) {
+  const whiteKeys = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C']; // White keys
+  const blackKeys = ['C#', 'D#', 'F#', 'G#', 'A#']; // Black keys
+  const whiteButtons = document.querySelectorAll('.white-key');
+  const blackButtons = document.querySelectorAll('.black-key');
+
+  // Update white keys
+  for (let i = 0; i < whiteKeys.length; i++) {
+    const note = whiteKeys[i] + (i === whiteKeys.length - 1 ? octave + 1 : octave);
+    whiteButtons[i].innerText = note;
+  }
+
+  // Update black keys
+  for (let i = 0; i < blackKeys.length; i++) {
+    const note = blackKeys[i] + octave;
+    blackButtons[i].innerText = note;
+  }
+}
+// Function to handle the click event on the "Change" button
+document.getElementById('changeOctaveButton').addEventListener('click', function() {
+  const octaveInput = document.getElementById('baseOctave');
+  const octave = parseInt(octaveInput.value);
+
+  if (!isNaN(octave) && octave >= 1 && octave <= 8) {
+    updateKeyText(octave);
+  } else {
+    alert('Please enter a valid octave (1-8).');
+  }
+});

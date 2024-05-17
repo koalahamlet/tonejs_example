@@ -40,7 +40,7 @@
         <button id="playCustom">Play Custom</button>
       </div>
       <!-- Slider and checkbox -->
-      <input type="range" id="frequencySlider" min="20" max="1800" step="1">
+      <input type="range" id="frequencySlider" min="10" max="2400" step="1" style="width: 400px;">
       <div class="checkbox-container">
         <input type="checkbox" id="playOnSliderChange">
         <label for="playOnSliderChange">Play Note on Slider Change</label>
@@ -49,6 +49,17 @@
       <div class="info-box">
         <label for="wavelength">Wavelength (Hz):</label>
         <input type="text" id="wavelength" readonly>
+      </div>
+      <!-- Frequency Ratio -->
+      <div>
+        <label for="frequencyRatio">Frequency Ratio:</label>
+        <input type="text" id="frequencyRatio" readonly>
+      </div>
+      <!-- Base Octave thingy -->
+      <div>
+        <label for="baseOctave">Base Octave:</label>
+        <input type="number" id="baseOctave" min="1" max="8">
+        <button id="changeOctaveButton">Change</button>
       </div>
       <!-- Button to stop all notes -->
       <button id="stopAllNotes">Stop All Notes</button>
