@@ -19,6 +19,8 @@ function playNoteAndHighlightButton(button) {
     const ratio = frequency / lastFrequency;
     console.log("ratio", ratio)
     document.getElementById("frequencyRatio").value = ratio.toFixed(2);
+    const diff = lastFrequency - frequency;
+    document.getElementById("frequencyDifference").value = diff.toFixed(2);
   }
   console.log("asdfasdf", frequency)
   lastFrequency = frequency; // Update lastFrequency
